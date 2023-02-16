@@ -1,0 +1,48 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Lista de cápsulas{% endblock subtitulo %}
+
+{% block estilos %}
+h1.titulos-coder {
+  color: #787276;
+}
+{% endblock estilos %}
+
+{% block contenido %}
+<h1> Lista de Cápsulas</h1>
+<a href="{% url 'crear_capsulas' %}" class="btn btn-secondary" role="button" aria-pressed="true">Añadir</a>
+<br><br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Descripción</th>
+      <th>Fecha de entrega</th>
+      <th>Precio</th>
+      <th>Ver</th>  
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    {% for capsulas in object_list %}
+    <tr>
+      <td>{{ capsulas.tipo }}</td>
+      <td>{{ capsulas.cantidad }}</td>
+      <td>{{ capsulas.descripcion }}</td>
+      <td>{{ capsulas.fecha_entrega }}</td>
+      <td>{{ capsulas.precio }}</td>
+      <td>
+        <a href="{% url 'ver_capsulas' capsulas.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'editar_capsulas' capsulas.id %}">Editar</a>
+      </td>
+      <td>
+        <a href="{% url 'eliminar_capsulas' capsulas.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}

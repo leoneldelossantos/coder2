@@ -1,0 +1,8 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Inicio{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Bienvenido {{ user.last_name }}, {{ user.first_name }}</h1>
+<img src="{{ user.avatar.imagen.url }}" />
+{% endblock contenido %}

@@ -1,0 +1,16 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Crear tipos de tés{% endblock subtitulo %}
+
+{% block contenido %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Alta / Modificar" />
+</form>
+
+<br>
+<p><center><a href="{% url 'listar_Te' %}">Volver lista</a></center></p>
+
+
+{% endblock contenido %}

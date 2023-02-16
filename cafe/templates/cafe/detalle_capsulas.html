@@ -1,0 +1,12 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Detalle del Te{% endblock subtitulo %}
+
+{% block contenido %}
+<h4>{{object.tipo}}, {{object.descripcion}}</h4>
+<span><b>Precio:</b> {{object.precio}}</span>
+
+<br>
+<a href="{% url 'listar_capsulas' %}">Volver a la lista</a>
+
+{% endblock contenido %}

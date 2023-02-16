@@ -1,0 +1,12 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Detalle del Cliente{% endblock subtitulo %}
+
+{% block contenido %}
+<h4>{{object.apellido}}, {{object.nombre}}</h4>
+<span><b>DNI:</b> {{object.DNI}}</span>
+
+<br>
+<a href="{% url 'listar_cliente' %}">Volver a la lista</a>
+
+{% endblock contenido %}

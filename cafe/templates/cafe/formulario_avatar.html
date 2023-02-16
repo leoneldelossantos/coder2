@@ -1,0 +1,11 @@
+{% extends "cafe/base.html" %}
+{% block subtitulo %}Perfil{% endblock subtitulo %}
+
+{% block contenido %}
+<h3>Subir imagen de perfil -> </h3>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Subir imagen"/>
+</form>
+{% endblock contenido %}

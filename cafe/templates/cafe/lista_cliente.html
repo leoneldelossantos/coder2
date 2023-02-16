@@ -1,0 +1,44 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Lista de clientes{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Lista de clientes</h1>
+<a href="{% url 'crear_cliente' %}" class="btn btn-secondary" role="button" aria-pressed="true">Añadir</a>
+<br><br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <td>DNI</td>
+      <td>Email</td>
+      <td>Ver</td>
+      <td>Editar</td>
+
+    </tr>
+    {% for cliente in object_list %}
+    <tr>
+      <td>{{ cliente.nombre }}</td>
+      <td>{{ cliente.apellido }}</td>
+      <td>{{ cliente.DNI }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>
+        <a href="{% url 'ver_cliente' cliente.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'editar_cliente' cliente.id %}">Editar</a>
+      </td>
+      <td>
+
+        </form
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}
+
+

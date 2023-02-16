@@ -1,0 +1,50 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Lista de Té{% endblock subtitulo %}
+
+{% block estilos %}
+h1.titulos-coder {
+  color: #787276;
+}
+{% endblock estilos %}
+
+{% block contenido %}
+<h1> Lista de Té</h1>
+<a href="{% url 'crear_Te' %}" class="btn btn-secondary" role="button" aria-pressed="true">Añadir</a>
+<br><br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Descripción</th>
+      <th>Fecha de entrega</th>
+      <th>Precio</th>
+      <th>Ver</th>  
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    {% for Te in object_list %}
+    <tr>
+      <td>{{ Te.tipo }}</td>
+      <td>{{ Te.cantidad }}</td>
+      <td>{{ Te.descripcion }}</td>
+      <td>{{ Te.fecha_entrega }}</td>
+      <td>{{ Te.precio }}</td>
+      <td>
+        <a href="{% url 'ver_Te' Te.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'editar_Te' Te.id %}">Editar</a>
+      </td>
+      <td>
+        <a href="{% url 'eliminar_Te' Te.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}
+
